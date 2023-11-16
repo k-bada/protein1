@@ -1,0 +1,28 @@
+server.port: 8081
+spring:
+  config:
+    activate:
+      on-profile: "local"
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/testDB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+springdoc:
+  packages-to-scan: protein.proteinspring.controller
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    path: /
+    disable-swagger-default-url: true
+    display-request-duration: true
+    operations-sorter: alpha
